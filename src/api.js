@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // FlaskバックエンドのAPIエンドポイント
-export const BASE_URL = 'https://ranking-backend.cspm.fun';
+export const BASE_URL = process.env.REACT_APP_BASE_URL;
 export const API_URL = `${BASE_URL}/api/influencers`;
 export const UPLOAD_API_URL = `${BASE_URL}/api/upload_influencers`;
 export const CHECK_LOGIN_URL = `${BASE_URL}/api/check_login`;

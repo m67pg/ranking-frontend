@@ -5,8 +5,9 @@ import {
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-const API_LOGIN_URL = 'https://ranking-backend.cspm.fun/api/login';
-const API_REGISTER_URL = 'https://ranking-backend.cspm.fun/api/register';
+export const BASE_URL = process.env.REACT_APP_BASE_URL;
+const API_LOGIN_URL = `${BASE_URL}/api/login`;
+const API_REGISTER_URL = `${BASE_URL}/api/register`;
 
 // onLogin プロップを受け取る
 function Login({ onLogin }) {
