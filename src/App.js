@@ -16,6 +16,7 @@ function App() {
       if (response.data.isLoggedIn) {
         setIsLoggedIn(true);
         setUsername(response.data.username);
+        api.defaults.headers['X-CSRFToken'] = response.data.csrfToken;
       } else {
         setIsLoggedIn(false);
         setUsername(null);

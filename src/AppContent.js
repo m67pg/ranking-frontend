@@ -119,7 +119,6 @@ function AppContent({ isLoggedIn, username, handleLogout }) {
       const response = await api.post(UPLOAD_API_URL, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
-          'X-CSRFToken': getCookie('csrftoken'),
         },
       });
       setSnackbarMessage(response.data.message || "ファイルのアップロードとインポートが成功しました！");
@@ -154,11 +153,6 @@ function AppContent({ isLoggedIn, username, handleLogout }) {
     }
     setSnackbarOpen(false);
   };
-  function getCookie(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    return parts.length === 2 ? parts.pop().split(';').shift() : '';
-  }
 
   return (
     <Box sx={{ p: 3 }}>

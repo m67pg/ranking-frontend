@@ -14,11 +14,13 @@
 # misc
 .DS_Store
 .env.local
+.env.development.django
+.env.development.flask
 .env.development.local
 .env.test.local
+.env.production.django
+.env.production.flask
 .env.production.local
-.env.django
-.env.flask
 
 npm-debug.log*
 yarn-debug.log*

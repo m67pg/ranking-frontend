@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import { api } from '../api';
 import {
   Box, TextField, Button, Typography, Paper, Alert, Snackbar, CircularProgress
 } from '@mui/material';
@@ -35,9 +35,10 @@ function Login({ onLogin }) {
     try {
       let response;
       if (isRegistering) {
-        response = await axios.post(API_REGISTER_URL, { username, password });
+        response = await api.post(API_REGISTER_URL, { username, password });
       } else {
-        response = await axios.post(API_LOGIN_URL, { username, password }, { withCredentials: true });
+        response = await api.post(API_LOGIN_URL, { username, password }, { withCredentials: true });
+        api.defaults.headers['X-CSRFToken'] = response.data.csrfToken;
       }
 
       setSnackbarMessage(response.data.message || (isRegistering ? "登録成功" : "ログイン成功"));
